@@ -165,12 +165,4 @@ The `data` directory is created when configuration or lease information is saved
 - **Local DNS works but external names fail:** check upstream reachability from the server. An isolated network needs another connection for external DNS.
 - **Wi-Fi still disconnects:** radio, authentication, and access point problems must be diagnosed separately from DHCP/DNS.
 
-## Validation and limitations
 
-The standalone application passed 41 automated development tests on Windows with Python 3.12.14. Tests were run with isolated Python and site packages disabled (`-I -S`) against the single-file application, rather than the former multi-file implementation. The development test harness is not included in this application release; its results are recorded in `test-report.json`.
-
-Coverage includes DNS/HTTP on loopback, DHCP packet handling and persistence, native Windows interface isolation, DNS wire fixtures, and UI port fallback. The tests do not open DHCP port 67 or send DHCP broadcasts into a real network. A separate startup check verified that a folder containing only `lantern.py` serves the complete embedded console. The dark-mode English interface has also been checked in a browser.
-
-Actual DHCP client operation over Wi-Fi/Ethernet and runtime execution on macOS/Linux have not been verified in this Windows environment. Intended for small direct test/private networks. No DHCP failover, DNS dynamic updates, zone transfers, full authoritative zone management, or independent DNSSEC validation. DNSSEC data can be forwarded. AAAA records are supported, but the DNS listener itself uses IPv4.
-
-References: [RFC 2131](https://www.rfc-editor.org/rfc/rfc2131), [RFC 2132](https://www.rfc-editor.org/rfc/rfc2132), [RFC 8375](https://www.rfc-editor.org/rfc/rfc8375), [Apple interface options](https://github.com/apple-oss-distributions/xnu/blob/main/bsd/netinet/in.h), [Microsoft IPv4 socket options](https://learn.microsoft.com/en-us/windows/win32/winsock/ipproto-ip-socket-options).
