@@ -1,0 +1,28 @@
+{
+  "automated_tests": 41,
+  "result": "passed",
+  "environment": "Windows, Python 3.12.14",
+  "third_party_dependencies": [],
+  "dependency_check": "Single-file tests executed with python -I -S; no third-party packages",
+  "browser": "English dark-mode console in the in-app browser against the actual standard-library server on localhost:8090",
+  "verified": [
+    "DNS UDP and TCP on loopback",
+    "DNS records, CNAMEs, wildcard, truncation",
+    "DNS forwarding, timeout failover, transaction validation",
+    "DHCP packet parsing, OFFER/ACK/NAK/INFORM, renewal/release/decline",
+    "DHCP leases, reservations, pool exhaustion, persistence failure",
+    "Native Windows adapter alias resolution, inbound allow-list, outbound interface",
+    "HTTP API, CSRF/Host checks, configuration and service lifecycle",
+    "Automatic UI port fallback; explicit busy port fails clearly",
+    "UI interface enumeration, English interface, dark-mode layout; existing form/filter/pause checks"
+  ],
+  "not_verified": [
+    "Real DHCP client operation/broadcasts over WLAN/Ethernet on any OS",
+    "Runtime tests on macOS/Linux",
+    "WLAN disconnect cause or resolution"
+  ],
+  "application": "lantern.py",
+  "application_sha256": "72db8cf5351485aefe80e3831e1ad45b6a7add369572ab60997aa0851431f37a",
+  "distribution": "One application Python file plus optional supporting documents",
+  "standalone_start_verified": true
+}

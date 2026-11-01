@@ -1,0 +1,40 @@
+{
+  "interface": "en0",
+  "bind_ip": "192.168.50.1",
+  "netmask": "255.255.255.0",
+  "dns": {
+    "port": 53,
+    "forwarders": [
+      "1.1.1.1",
+      "9.9.9.9"
+    ],
+    "timeout": 2.0,
+    "local_zone": "home.arpa",
+    "records": [
+      {
+        "name": "server.home.arpa",
+        "type": "A",
+        "value": "192.168.50.1",
+        "ttl": 300
+      },
+      {
+        "name": "device.home.arpa",
+        "type": "A",
+        "value": "192.168.50.10",
+        "ttl": 300
+      }
+    ]
+  },
+  "dhcp": {
+    "pool_start": "192.168.50.100",
+    "pool_end": "192.168.50.200",
+    "lease_seconds": 3600,
+    "router": "",
+    "dns_servers": [
+      "192.168.50.1"
+    ],
+    "domain": "home.arpa",
+    "reservations": [],
+    "options": []
+  }
+}
